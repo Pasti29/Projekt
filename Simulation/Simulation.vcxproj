@@ -18,6 +18,26 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Demon.cpp" />
+    <ClCompile Include="General.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Officer.cpp" />
+    <ClCompile Include="Private.cpp" />
+    <ClCompile Include="Soldier.cpp" />
+    <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="Zombie.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Demon.h" />
+    <ClInclude Include="General.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="Officer.h" />
+    <ClInclude Include="Private.h" />
+    <ClInclude Include="Soldier.h" />
+    <ClInclude Include="Unit.h" />
+    <ClInclude Include="Zombie.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{6466711A-E536-4893-88C4-04AB155E761E}</ProjectGuid>
@@ -146,9 +166,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Simulation.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

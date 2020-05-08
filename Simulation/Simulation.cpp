@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "Simulation.h"
 
 int main()
 {
