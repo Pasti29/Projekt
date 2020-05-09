@@ -1,7 +1,7 @@
 #pragma once
 #include "Soldier.h"
-class Officer :
-	private Soldier
+class Officer :private Soldier
 {
+	void officer();
 };
 
