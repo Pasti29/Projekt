@@ -1,11 +1,12 @@
 #pragma once
 #include "Unit.h"
-class Monster :protected Unit
+class Monster :public Unit
 {
-protected:
 	int movespeed; //how many steps can take
 
 public:
+	Monster(int, int, int, int, int);
+
 	virtual void move() = 0;
 	virtual void attack() = 0;
 };

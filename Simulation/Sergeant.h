@@ -1,7 +1,10 @@
 #pragma once
 #include "Soldier.h"
-class Sergeant :private Soldier
+class Sergeant :public Soldier
 {
+public:
+	Sergeant(int, int, int, int, int, int);
+
 	void sergeant();
 };
 

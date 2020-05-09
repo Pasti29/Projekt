@@ -1,12 +1,13 @@
 #pragma once
 #include "Unit.h"
-class Soldier :protected Unit
+class Soldier :public Unit
 {
-protected:
 	int movespeed; //how many steps can take
-	int ammon;
+	int ammo;
 
 public:
+	Soldier(int, int, int, int, int, int);
+
 	virtual void move() = 0;
 	virtual void attack() = 0;
 	virtual void reload() = 0;
