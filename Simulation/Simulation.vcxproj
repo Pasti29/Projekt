@@ -23,7 +23,8 @@
     <ClCompile Include="General.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Officer.cpp" />
-    <ClCompile Include="Private.cpp" />
+    <ClCompile Include="Sergeant.cpp" />
+    <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Zombie.cpp" />
@@ -33,7 +34,9 @@
     <ClInclude Include="General.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Officer.h" />
-    <ClInclude Include="Private.h" />
+    <ClInclude Include="Sergeant.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Simulation.h" />
     <ClInclude Include="Soldier.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Zombie.h" />
