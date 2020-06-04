@@ -1,0 +1,3 @@
+﻿  Simulation.cpp
+C:\Users\Karol\Desktop\Projekt-Branch\Branch2\Simulation.cpp(18,12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  Branch2.vcxproj -> C:\Users\Karol\Desktop\Projekt-Branch\Branch2\Debug\Branch2.exe
