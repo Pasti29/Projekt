@@ -1,0 +1,9 @@
+﻿  Map.cpp
+C:\Users\Karol\Desktop\Projekt-master\Projekt\Projekt\Map.cpp(16,32): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Karol\Desktop\Projekt-master\Projekt\Projekt\Map.cpp(27,32): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Karol\Desktop\Projekt-master\Projekt\Projekt\Map.cpp(49,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\Karol\Desktop\Projekt-master\Projekt\Projekt\Map.cpp(55,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\Karol\Desktop\Projekt-master\Projekt\Projekt\Map.cpp(92,19): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\Karol\Desktop\Projekt-master\Projekt\Projekt\Map.cpp(95,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\Karol\Desktop\Projekt-master\Projekt\Projekt\Map.cpp(97,18): warning C4244: "inicjowanie": konwersja z "double" do "int", możliwa utrata danych
+  Projekt.vcxproj -> C:\Users\Karol\Desktop\Projekt-master\Projekt\Debug\Projekt.exe
