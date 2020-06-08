@@ -1,13 +1,6 @@
 #include "Demon.h"
 
-Demon::Demon(int xpos, int ypos, char point)
+Demon::Demon(int xpos, int ypos, char point) :Monster(xpos, ypos, point)
 {
-	this->xpos = xpos;
-	this->ypos = ypos;
-	this->point = point;
 }
 
-char Demon::getPoint()
-{
-	return point;
-}

@@ -40,27 +40,27 @@ void Map::place(int x, int y, int xpos, int ypos)
 	}
 	for (unsigned int i = 0; i < soldiers.size(); i++)
 	{
-		soldiers[i]->setxpos(x);
+		soldiers[i]->setFirstX(x);
 		//cout << "soldier x: " << soldiers[i].getxpos() + 1 << endl;
-		soldiers[i]->setypos(y);
+		soldiers[i]->setFirstY(y);
 		//cout << "soldier y: " << y - soldiers[i].getypos() << endl;	
-		map[soldiers[i]->ypos][soldiers[i]->xpos] = soldiers[i]->getPoint();
+		map[soldiers[i]->getYpos()][soldiers[i]->getXpos()] = soldiers[i]->getPoint();
 	}
 	for (int i = 0; i < monsters.size(); i++)
 	{
-		monsters[i]->setxpos(x);
+		monsters[i]->setFirstX(x);
 		//cout << "monster x: " << monsters[i].getxpos() + 1 << endl;
-		monsters[i]->setypos(y);
+		monsters[i]->setFirstY(y);
 		//cout << "monster y: " << y - monsters[i].getypos() << endl;
 		for (int j = 0;j < soldiers.size();j++)
 		{
-			if ((monsters[i]->getxpos() == soldiers[j]->getxpos()) && (monsters[i]->getypos() == soldiers[j]->getypos()))
+			if ((monsters[i]->getXpos() == soldiers[j]->getXpos()) && (monsters[i]->getYpos() == soldiers[j]->getYpos()))
 			{
-				monsters[i]->setxpos(x);
-				monsters[i]->setypos(y);
+				monsters[i]->setFirstX(x);
+				monsters[i]->setFirstX(y);
 			}
 		}
-		map[monsters[i]->ypos][monsters[i]->xpos] = monsters[i]->getPoint();
+		map[monsters[i]->getYpos()][monsters[i]->getXpos()] = monsters[i]->getPoint();
 
 	}
 }
@@ -94,7 +94,7 @@ void Map::moveunits(int x, int y, int xpos, int ypos)
 		int dist=100, idmonster;
 		for (int j = 0;j < monsters.size();j++)
 		{
-			int dist_temp = sqrt(pow((soldiers[i]->xpos - monsters[j]->xpos), 2) + pow((soldiers[i]->ypos - monsters[j]->ypos), 2));
+			int dist_temp = sqrt(pow((soldiers[i]->getXpos() - monsters[j]->getXpos()), 2) + pow((soldiers[i]->getYpos() - monsters[j]->getYpos()), 2));
 			if (dist_temp < dist)
 			{
 				dist = dist_temp;
@@ -102,14 +102,14 @@ void Map::moveunits(int x, int y, int xpos, int ypos)
 			}
 			
 		}
-		map[soldiers[i]->ypos][soldiers[i]->xpos] = '-';
+		map[soldiers[i]->getYpos()][soldiers[i]->getXpos()] = '-';
 		
-		if (soldiers[i]->xpos < monsters[idmonster]->xpos) soldiers[i]->xpos++;
-		else if (soldiers[i]->xpos > monsters[idmonster]->xpos) soldiers[i]->xpos--;
-		else if (soldiers[i]->ypos < monsters[idmonster]->ypos) soldiers[i]->ypos++;
-		else  soldiers[i]->ypos--;
+		if (soldiers[i]->getXpos() < monsters[idmonster]->getXpos()) soldiers[i]->setXpos(soldiers[i]->getXpos() + 1);
+		else if (soldiers[i]->getXpos() > monsters[idmonster]->getXpos()) soldiers[i]->setXpos(soldiers[i]->getXpos() - 1);
+		else if (soldiers[i]->getYpos() < monsters[idmonster]->getYpos()) soldiers[i]->setYpos(soldiers[i]->getYpos() + 1);
+		else  soldiers[i]->setYpos(soldiers[i]->getYpos() - 1);
 		
-		map[soldiers[i]->ypos][soldiers[i]->xpos] = soldiers[i]->getPoint();
+		map[soldiers[i]->getYpos()][soldiers[i]->getXpos()] = soldiers[i]->getPoint();
 	
 	}
 	Sleep(500);

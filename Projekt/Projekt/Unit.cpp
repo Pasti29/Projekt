@@ -1,32 +1,48 @@
 #include "Unit.h"
-#include "Map.h"
-#include <time.h>
 
-
-
-Unit::Unit(int xpos, int ypos)
+Unit::Unit(int xpos, int ypos, char point)
 {
 	this->xpos = xpos;
 	this->ypos = ypos;
+	this->point = point;
 }
 
-void Unit::setxpos(int x)
+void Unit::setFirstX(int x)
 {
 	this->xpos = rand() % x;
 }
 
-void Unit::setypos(int y)
+void Unit::setFirstY(int y)
 {
-	this->ypos = rand() % y ;
+	this->ypos = rand() % y;
 }
 
-int Unit::getxpos()
+void Unit::setXpos(int x)
+{
+	this->xpos = x;
+}
+
+void Unit::setYpos(int y)
+{
+	this->ypos = y;
+}
+
+void Unit::setPoint(char p)
+{
+	this->point = p;
+}
+
+int Unit::getXpos()
 {
 	return xpos;
 }
 
-int Unit::getypos()
+int Unit::getYpos()
 {
 	return ypos;
 }
 
+char Unit::getPoint()
+{
+	return point;
+}

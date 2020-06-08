@@ -4,7 +4,6 @@
 class Monster :public Unit
 {
 public:
-	Monster(int = 0, int = 0);
-	char point = 'X';
+	Monster(int = -1, int = -1, char = 'Z');
 };
 

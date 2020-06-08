@@ -16,8 +16,7 @@ using namespace std;
 	class Map
 	{
 	public:
-		vector <Unit*> soldiers;
-		vector <Unit*> monsters;
+		vector <Unit*> soldiers, monsters;
 		char map[10][20];
 		const int x = 20;
 		const int y = 10;

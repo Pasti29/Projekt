@@ -4,7 +4,8 @@ class Demon :
 	public Monster
 {
 public:
-	Demon(int = 0, int = 0, char = 'D');
-	char getPoint();
+	Demon(int = -1, int = -1, char = 'D');
+
+
 };
 

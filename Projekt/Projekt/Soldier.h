@@ -4,7 +4,7 @@
 class Soldier :public Unit
 {
 public:
-	char point = 'O';
+	Soldier(int = -1, int = -1, char = 'S');
 	void move();
 };
 

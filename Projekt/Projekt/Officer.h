@@ -4,7 +4,8 @@ class Officer :
 	public Soldier
 {
 public:
-	Officer(int = 0, int = 0, char='O');
-	char getPoint();
+	Officer(int = -1, int = -1, char='O');
+
+
 };
 

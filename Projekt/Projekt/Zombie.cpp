@@ -1,13 +1,5 @@
 #include "Zombie.h"
 
-Zombie::Zombie(int xpos, int ypos, char point)
+Zombie::Zombie(int xpos, int ypos, char point) :Monster(xpos, ypos, point)
 {
-	this->xpos = xpos;
-	this->ypos = ypos;
-	this->point = point;
-}
-
-char Zombie::getPoint()
-{
-	return point;
 }

@@ -1,18 +1,23 @@
 #pragma once
 #include <stdlib.h>
+#include <time.h>
 
 class Unit
-{public:
+{
+protected:
 	int xpos; //position in x
 	int ypos; //position in y
 	char point;
 
 public:
-	Unit(int = 0, int = 0);
+	Unit(int = 0, int = 0, char = 'U');
 
-	void setxpos(int);
-	void setypos(int);
-	int getxpos();
-	int getypos();
-	virtual char getPoint() = 0;
+	void setFirstX(int);
+	void setFirstY(int);
+	void setXpos(int);
+	void setYpos(int); 
+	void setPoint(char);
+	int getXpos();
+	int getYpos();
+	char getPoint();
 };
