@@ -11,23 +11,28 @@
 #include <conio.h>
 #include <math.h>
 
+
 using namespace std;
 
 	class Map
 	{
-	public:
 		vector <Unit*> soldiers, monsters;
-		char map[10][20];
-		const int x = 20;
-		const int y = 10;
+		char** map;
+		int x;
+		int y;
 
 	public:
-		Map(const int = 20, const int = 10);
+		Map(int = 20, int = 10);
 
+		int getX();
+		int getY();
+		bool IsOccupied(int x, int y, int k, char u);
+		void place();
 		void setsoldiers();
 		void setmonsters();
-		void place(int x, int y, int xpos, int ypos);
 		void draw();
+		bool areMonstersAlive();
+		bool areSoldiersAlive();
 		void moveunits(int x, int y, int xpos, int ypos);
 	};
 

@@ -5,11 +5,6 @@
 
 using namespace std;
 
-Soldier::Soldier(int xpos, int ypos, char point) :Unit(xpos, ypos, point)
+Soldier::Soldier(int xpos, int ypos, char point, int health, int strength) :Unit(xpos, ypos, point, health, strength)
 {
-}
-
-void Soldier::move()
-{
-	
 }

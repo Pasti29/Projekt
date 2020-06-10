@@ -7,16 +7,21 @@ using namespace std;
 
 int main()
 {
-
+    int x, y;
+    cout << "X: ";
+    cin >> x;
+    cout << "Y: ";
+    cin >> y;
     srand(time(NULL));
-    Map map;
+    Map map(x, y);
+    map.place();
     map.setsoldiers();
     map.setmonsters();
-    map.place(map.x, map.y,0,0 );
     map.draw();
-    while(true)
+    system("pause");
+    while(!map.areMonstersAlive()&&!map.areSoldiersAlive())
     {
-        map.moveunits(map.x, map.y, 0, 0);
+        map.moveunits(map.getX(), map.getY(), 0, 0);
         cout << endl;
     }
 }
