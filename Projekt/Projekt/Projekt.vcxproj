@@ -154,6 +154,7 @@
     <ClCompile Include="Officer.cpp" />
     <ClCompile Include="Projekt.cpp" />
     <ClCompile Include="Sergeant.cpp" />
+    <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="SoldierFactory.cpp" />
     <ClCompile Include="Unit.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="MonsterFactory.h" />
     <ClInclude Include="Officer.h" />
     <ClInclude Include="Sergeant.h" />
+    <ClInclude Include="Simulation.h" />
     <ClInclude Include="Soldier.h" />
     <ClInclude Include="SoldierFactory.h" />
     <ClInclude Include="Unit.h" />

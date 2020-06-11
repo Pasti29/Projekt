@@ -9,44 +9,39 @@ Unit::Unit(int xpos, int ypos, char point, int health, int strength)
 	this->strength = strength;
 }
 
-void Unit::setFirstX(int x)
+void Unit::setFirstX(int x) //sets unit's starting position in x axis
 {
-	this->xpos = rand() % x;
+	xpos = rand() % x;
 }
 
-void Unit::setFirstY(int y)
+void Unit::setFirstY(int y) //sets unit's starting position in y axis
 {
-	this->ypos = rand() % y;
+	ypos = rand() % y;
 }
 
-void Unit::setXpos(int x)
+void Unit::setXpos(int x) //used for updating unit's position in x
 {
-	this->xpos = x;
+	xpos = x;
 }
 
-void Unit::setYpos(int y)
+void Unit::setYpos(int y) //used for updating unit's position in y
 {
-	this->ypos = y;
+	ypos = y;
 }
 
-void Unit::setPoint(char p)
+void Unit::setHealth(int h) //used for updating unit's health
 {
-	this->point = p;
-}
-
-void Unit::setHealth(int h)
-{
-	this->health = h;
+	health = h;
 } 
 
-int Unit::getHealth()
+int Unit::getHealth() 
 {
 	return health;
 }
 
-int Unit::getStrength()
+int Unit::damage() //generates an amount of damage based on unit's strength
 {
-	return strength;
+	return rand() % strength;
 }
 
 int Unit::getXpos()
@@ -64,10 +59,10 @@ char Unit::getPoint()
 	return point;
 }
 
-void Unit::attack(Unit* unit)
+void Unit::attack(Unit* unit) //lowers enemy's health by the previously generated amount of damage
 {
 	if (unit->getHealth() > 0)
 	{
-		unit->setHealth(unit->getHealth() - strength);
+		unit->setHealth(unit->getHealth() - damage());
 	}
 }

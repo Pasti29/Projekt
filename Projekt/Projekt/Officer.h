@@ -4,7 +4,7 @@ class Officer :
 	public Soldier
 {
 public:
-	Officer(int = 1, int = 1, char='O', int = 3, int = 2);
+	Officer(int = 1, int = 1, char='O', int = 50, int = 25);
 
 
 };

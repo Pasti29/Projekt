@@ -4,7 +4,7 @@ class Demon :
 	public Monster
 {
 public:
-	Demon(int = -1, int = -1, char = 'D', int = 4, int = 3);
+	Demon(int = -1, int = -1, char = 'D', int = 50, int = 30);
 
 
 };

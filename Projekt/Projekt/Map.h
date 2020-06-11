@@ -26,13 +26,12 @@ using namespace std;
 
 		int getX();
 		int getY();
-		bool IsOccupied(int x, int y, int k, char u);
-		void place();
-		void setsoldiers();
-		void setmonsters();
-		void draw();
 		bool areMonstersAlive();
 		bool areSoldiersAlive();
-		void moveunits(int x, int y, int xpos, int ypos);
+		void draw();
+		bool IsOccupied(int x, int y, int k, char u);
+		void setsoldiers(int n);
+		void setmonsters(int n);
+		void moveunits();
 	};
 

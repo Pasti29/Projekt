@@ -18,13 +18,11 @@ public:
 	void setFirstY(int);
 	void setXpos(int);
 	void setYpos(int); 
-	void setPoint(char);
 	void setHealth(int);
-	int getHealth();
-	int getStrength();
-	void attack(Unit*);
 	int getXpos();
 	int getYpos();
 	char getPoint();
-	
+	int getHealth();
+	int damage();
+	void attack(Unit*);
 };

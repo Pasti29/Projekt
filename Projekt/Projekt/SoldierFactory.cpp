@@ -1,6 +1,6 @@
 #include "SoldierFactory.h"
 
-void SoldierFactory::makeFirst_type(int num, vector <Unit*>& soldiers)
+void SoldierFactory::makeFirst_type(int num, vector <Unit*>& soldiers) 
 {
 	for (int i = 0; i < num; i++)
 	{

@@ -8,6 +8,10 @@ Map::Map(int x, int y)
 	for (int i = 0; i < y; i++)
 	{
 		map[i] = new char[x];
+		for (int j = 0; j < x; j++)
+		{
+			map[i][j] = ' ';
+		}
 	}
 }
 
@@ -21,7 +25,42 @@ int Map::getY()
 	return y;
 }
 
-bool Map::IsOccupied(int x, int y, int k, char u)
+bool Map::areMonstersAlive() //self-explanatory
+{
+	return monsters.empty();
+}
+
+bool Map::areSoldiersAlive()
+{
+	return soldiers.empty();
+}
+
+void Map::draw() //draws the map in console
+{
+	system("cls");
+	for (int i = 0; i < x + 2; i++)
+	{
+		cout << '-';
+	}
+	cout << endl;
+	for (int i = 0; i < y; i++)
+	{
+		cout << '|';
+		for (int j = 0; j < x; j++)
+		{
+			cout << map[i][j];
+		}
+		cout << '|' << endl;
+	}
+	for (int i = 0; i < x + 2; i++)
+	{
+		cout << '-';
+	}
+	cout << endl;
+	system("pause");
+}
+
+bool Map::IsOccupied(int x, int y, int k, char u) // checks if a position is already occupied by a different unit
 {
 	for (int i = 0; i < soldiers.size(); i++)
 	{
@@ -34,26 +73,12 @@ bool Map::IsOccupied(int x, int y, int k, char u)
 	return 0;
 }
 
-void Map::place()
-{
-	for (int i = 0; i < y; i++)
-	{
-		for (int j = 0; j < x; j++)
-		{
-			map[i][j] = '-';
-		}
-	}
-}
-
-void Map::setsoldiers()
+void Map::setsoldiers(int n)  //lets the user set a desired number of soldiers
 {
 	UnitFactory* factory;
 	factory = new SoldierFactory;
-	int n;
-	cout << "Set number of soldiers: " << endl;
-	cin >> n;
-	factory->makeFirst_type((n / 2), soldiers);
-	factory->makeSecond_type((ceil((double)n / 2)), soldiers);
+	factory->makeFirst_type((ceil((double)n / 2)), soldiers);
+	factory->makeSecond_type((n / 2), soldiers);
 	for (int i = 0; i < soldiers.size(); i++)
 	{
 		do {
@@ -64,15 +89,12 @@ void Map::setsoldiers()
 	}
 }
 
-void Map::setmonsters()
+void Map::setmonsters(int n) //lets the user set a desired number of monsters
 {
 	UnitFactory* factory;
 	factory = new MonsterFactory;
-	int n;
-	cout << "Set number of monsters: " << endl;
-	cin >> n;
-	factory->makeFirst_type((n / 2), monsters);
-	factory->makeSecond_type((ceil((double)n / 2)), monsters);
+	factory->makeFirst_type((ceil((double)n / 2)), monsters);
+	factory->makeSecond_type((n / 2), monsters);
 	for (int i = 0; i < monsters.size(); i++)
 	{
 		do {
@@ -82,33 +104,10 @@ void Map::setmonsters()
 		map[monsters[i]->getYpos()][monsters[i]->getXpos()] = monsters[i]->getPoint();
 	}
 }
-		
-void Map::draw()
-	{
 
-	for (int i = 0;i < y;i++)
-	{
-		for (int j = 0;j < x;j++)
-		{
-			cout << map[i][j];
-		}
-		cout << endl;
-	}
-}
-
-bool Map::areMonstersAlive()
+void Map::moveunits() //initiates every unit's turn and moves them across the map
 {
-	return monsters.empty();
-}
-
-bool Map::areSoldiersAlive()
-{
-	return soldiers.empty();
-}
-
-void Map::moveunits(int x, int y, int xpos, int ypos)
-{
-	for (int i = 0;i < soldiers.size();i++)
+	for (int i = 0;i < soldiers.size();i++) //searches for the nearst enemy unit
 	{
 		int dist=1000, idmonster;
 		for (int j = 0;j < monsters.size();j++)
@@ -119,25 +118,22 @@ void Map::moveunits(int x, int y, int xpos, int ypos)
 				dist = dist_temp;
 				idmonster = j;
 			}
-			
 		}
-		if ((dist == 1) && (soldiers[i]->getXpos() == monsters[idmonster]->getXpos() || soldiers[i]->getYpos() == monsters[idmonster]->getYpos()))
+		if ((dist == 1) && (soldiers[i]->getXpos() == monsters[idmonster]->getXpos() || soldiers[i]->getYpos() == monsters[idmonster]->getYpos())) //checks if soldier is able to attack a nearby monster
 		{
 			soldiers[i]->attack(monsters[idmonster]);
 			cout << monsters[idmonster]->getPoint() << ": " << monsters[idmonster]->getHealth() << endl;
 			if (monsters[idmonster]->getHealth() <= 0)
 			{
-				map[monsters[idmonster]->getYpos()][monsters[idmonster]->getXpos()] = '-';
+				map[monsters[idmonster]->getYpos()][monsters[idmonster]->getXpos()] = ' ';
 				monsters.erase(monsters.begin() + idmonster);
-				if (monsters.empty())
-				{
-					break;
-				}
+				if (areMonstersAlive()) break;
 			}
 		}
+		//soldiers' movement:
 		else
 		{
-			map[soldiers[i]->getYpos()][soldiers[i]->getXpos()] = '-';
+			map[soldiers[i]->getYpos()][soldiers[i]->getXpos()] = ' ';
 
 			if (soldiers[i]->getXpos() < monsters[idmonster]->getXpos() && soldiers[i]->getXpos() < (x - 1)) soldiers[i]->setXpos(soldiers[i]->getXpos() + 1);
 			else if (soldiers[i]->getXpos() > monsters[idmonster]->getXpos() && soldiers[i]->getXpos() > 0) soldiers[i]->setXpos(soldiers[i]->getXpos() - 1);
@@ -147,7 +143,7 @@ void Map::moveunits(int x, int y, int xpos, int ypos)
 			map[soldiers[i]->getYpos()][soldiers[i]->getXpos()] = soldiers[i]->getPoint();
 		}
 	}
-	for (int i = 0;i < monsters.size();i++)
+	for (int i = 0;i < monsters.size();i++) //searches for nearest
 	{
 		int distm = 1000, idsoldier=0;
 		for (int j = 0;j < soldiers.size();j++)
@@ -158,24 +154,20 @@ void Map::moveunits(int x, int y, int xpos, int ypos)
 				distm = distm_temp;
 				idsoldier = j;
 			}
-
 		}
 		if ((distm == 1) && (monsters[i]->getXpos() == soldiers[idsoldier]->getXpos() || monsters[i]->getYpos() == soldiers[idsoldier]->getYpos()))
 		{
 			monsters[i]->attack(soldiers[idsoldier]);
 			if (soldiers[idsoldier]->getHealth() <= 0)
 			{
-				map[soldiers[idsoldier]->getYpos()][soldiers[idsoldier]->getXpos()] = '-';
+				map[soldiers[idsoldier]->getYpos()][soldiers[idsoldier]->getXpos()] = ' ';
 				soldiers.erase(soldiers.begin() + idsoldier);
-				if (soldiers.empty())
-				{
-					break;
-				}
+				if (areSoldiersAlive()) break;
 			}
 		}
 		else
 		{
-			map[monsters[i]->getYpos()][monsters[i]->getXpos()] = '-';
+			map[monsters[i]->getYpos()][monsters[i]->getXpos()] = ' ';
 
 			if (monsters[i]->getXpos() < soldiers[idsoldier]->getXpos() && monsters[i]->getXpos() < (x +1)) monsters[i]->setXpos(monsters[i]->getXpos() + 1);
 			else if (monsters[i]->getXpos() > soldiers[idsoldier]->getXpos() && monsters[i]->getXpos() > 0) monsters[i]->setXpos(monsters[i]->getXpos() - 1);
@@ -185,8 +177,6 @@ void Map::moveunits(int x, int y, int xpos, int ypos)
 			map[monsters[i]->getYpos()][monsters[i]->getXpos()] = monsters[i]->getPoint();
 		}
 	}
-	Sleep(500);
-	system("cls");
-	draw();
-	system("pause");
+	Sleep(500); //gives the user some time to watch and enjoy the show
+	draw(); //draws an updated map
 	}
