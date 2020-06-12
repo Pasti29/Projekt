@@ -1,11 +1,10 @@
 #pragma once
-#include "Monster.h"
+#include "Unit.h"
+
 class Zombie :
-	public Monster
+	public Unit
 {
 public:
 	Zombie(int = -1, int = -1, char = 'Z', int = 20, int = 40);
-
-
 };
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Soldier.h"
+#include "Unit.h"
 
 using namespace std;
 

@@ -50,16 +50,17 @@ int main()
     } while (m < 1 || m> (x * y) - s);
 
     Map map(x, y);
-    Simulation sim;
-    map.setsoldiers(s);
-    map.setmonsters(m);
+    Simulation sim(s, m);
+    sim.setsoldiers(map);
+    sim.setmonsters(map);
     map.draw();
-    while(!map.areMonstersAlive()&&!map.areSoldiersAlive())
+    while(!sim.areAlive(sim.getSoldiers())&&!sim.areAlive(sim.getMonsters()))
     {
-        map.moveunits();
+        sim.moveunits(sim.getSoldiers(), sim.getMonsters(), map);
+        sim.moveunits(sim.getMonsters(), sim.getSoldiers(), map);
         cout << endl;
     }
-    if (map.areSoldiersAlive())
+    if (sim.areAlive(sim.getSoldiers()))
     {
         Sleep(500);
         system("cls");

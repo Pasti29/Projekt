@@ -2,8 +2,6 @@
 #include <vector>
 #include <iostream>
 #include "Unit.h"
-#include "Monster.h"
-#include "Soldier.h"
 #include "UnitFactory.h"
 #include "SoldierFactory.h"
 #include "MonsterFactory.h"
@@ -13,11 +11,17 @@ using namespace std;
 
 class Simulation
 {
+	int s, m;
 	vector <Unit*> soldiers, monsters;
 
 public:
+	Simulation(int = 2, int = 2);
 
-	void setsoldiers(Map);
-	void setmonsters(Map);
+	bool areAlive(vector <Unit*>);
+	vector <Unit*>& getSoldiers();
+	vector <Unit*>& getMonsters();
+	void setsoldiers(Map&);
+	void setmonsters(Map&);
+	void moveunits(vector <Unit*>&, vector <Unit*>&, Map&);
 };
 

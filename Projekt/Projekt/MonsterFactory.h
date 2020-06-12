@@ -2,6 +2,7 @@
 #include "UnitFactory.h"
 #include "Zombie.h"
 #include "Demon.h"
+
 class MonsterFactory :
 	public UnitFactory
 {

@@ -1,3 +1,16 @@
-﻿  Projekt.cpp
+﻿  Demon.cpp
+  Map.cpp
+  MonsterFactory.cpp
+  Officer.cpp
+  Projekt.cpp
 C:\Users\Karol\Desktop\Projekt-Branch\Projekt\Projekt\Projekt.cpp(12,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  Sergeant.cpp
+  Simulation.cpp
+C:\Users\Karol\Desktop\Projekt-Branch\Projekt\Projekt\Simulation.cpp(19,31): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Karol\Desktop\Projekt-Branch\Projekt\Projekt\Simulation.cpp(35,31): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Karol\Desktop\Projekt-Branch\Projekt\Projekt\Simulation.cpp(54,19): warning C4244: "inicjowanie": konwersja z "double" do "int", możliwa utrata danych
+  SoldierFactory.cpp
+  Unit.cpp
+  Zombie.cpp
+  Generowanie kodu...
   Projekt.vcxproj -> C:\Users\Karol\Desktop\Projekt-Branch\Projekt\x64\Debug\Projekt.exe
